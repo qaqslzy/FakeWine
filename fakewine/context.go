@@ -1,5 +1,7 @@
 package fakewine
 
+import "net/http"
+
 /**
 *
 * @author Liu Weiyi
@@ -7,4 +9,12 @@ package fakewine
  */
 
 type Context struct {
+	request  *http.Request
+	reponsew repinseWriter
+	path     string
+	handles  HandlersChain
+}
+
+func (ctx *Context) JSON(code int, obj interface{}) {
+
 }
