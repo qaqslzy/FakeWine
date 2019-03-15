@@ -24,11 +24,11 @@ func main() {
 The same to [gin](https://github.com/gin-gonic/gin), but lose almost all of them functions.
 
 ## Read Gin's code
-[Gin源码浅读（一）]()
+[Gin源码浅读（一）](https://www.noqaqs.cn/entry/read?id=b1871e83ed2d4def5905b641ba25b5d7)
 
-[Gin源码浅读（二）]()
+[Gin源码浅读（二）](https://www.noqaqs.cn/entry/read?id=9ef2e814883a4bf34c5a1fb1d7e2674d)
 
-[Gin源码浅读（三）]()
+[Gin源码浅读（三）](https://www.noqaqs.cn/entry/read?id=fd7671a7466f4e8a56d9e0b915c608db)
 
 ## The end
 Continuous coding , but not always coding.
