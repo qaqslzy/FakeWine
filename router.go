@@ -1,4 +1,4 @@
-package fakewine
+package FakeWine
 
 import "path"
 

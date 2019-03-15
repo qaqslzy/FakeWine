@@ -1,7 +1,7 @@
-package fakewine
+package FakeWine
 
 import (
-	"FakeWine/fakewine/render"
+	"FakeWine/render"
 	"net/http"
 )
 

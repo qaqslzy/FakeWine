@@ -8,12 +8,12 @@ I just copy that code for learning.
 ## How To Use
 ```go
 package main
-import "FakeWine/fakewine"
+import "FakeWine"
 
 func main() {
-	fake := fakewine.New()
-	fake.GET("/", func(ctx *fakewine.Context) {
-		ctx.JSON(200, fakewine.H{
+	fake := FakeWine.New()
+	fake.GET("/", func(ctx *FakeWine.Context) {
+		ctx.JSON(200, FakeWine.H{
 			"hello": "world",
 		})
 	})
