@@ -21,7 +21,7 @@ func main() {
 }
 ```
 
-The same to [gin](https://github.com/gin-gonic/gin), but lose almost all of them functions.
+The same to [gin](https://github.com/gin-gonic/gin), but lose almost all of their functions.
 
 ## Read Gin's code
 [Gin源码浅读（一）](https://www.noqaqs.cn/entry/read?id=b1871e83ed2d4def5905b641ba25b5d7)
