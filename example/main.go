@@ -10,7 +10,9 @@ import "FakeWine/fakewine"
 func main() {
 	fake := fakewine.New()
 	fake.GET("/", func(ctx *fakewine.Context) {
-
+		ctx.JSON(200, fakewine.H{
+			"hello": "world",
+		})
 	})
 	_ = fake.Run(":8000")
 }

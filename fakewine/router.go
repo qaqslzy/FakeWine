@@ -1,5 +1,7 @@
 package fakewine
 
+import "path"
+
 /**
 *
 * @author Liu Weiyi
@@ -35,7 +37,8 @@ type GRouter struct {
 }
 
 func (group *GRouter) handle(relativePath, method string, handles ...Handle) Routes {
-	// TODO 计算绝对路径且添加路由
+	absolute := group.calculateAbsolutePath(relativePath)
+	group.engine.addRoute(absolute, method, handles...)
 	return group.returnObj()
 }
 
@@ -43,6 +46,7 @@ func (group *GRouter) handle(relativePath, method string, handles ...Handle) Rou
 func (group *GRouter) Handle(relativePath, method string, handles ...Handle) Routes {
 	//TODO 校验HTTP method 是否合法
 	group.handle(relativePath, method, handles...)
+	return group.returnObj()
 }
 
 // Handle any HTTP method I can handle
@@ -96,7 +100,11 @@ func (group *GRouter) Static(relativePath, fileRoot string) Routes {
 
 // Static serves one file from given file name
 func (group *GRouter) StaticFIle(relativePath, fileName string) Routes {
-	// TODO 返回单个文件
+	c := func(ctx *Context) {
+		ctx.File(fileName)
+	}
+	group.GET(relativePath, c)
+	group.HEAD(relativePath, c)
 	return group.returnObj()
 }
 
@@ -105,4 +113,21 @@ func (group *GRouter) returnObj() Routes {
 		return group.engine
 	}
 	return group
+}
+
+func (group *GRouter) calculateAbsolutePath(relativePath string) string {
+	if relativePath == "" {
+		return group.path
+	}
+	absolute := path.Join(group.path, relativePath)
+
+	if last(relativePath) == '/' && last(absolute) != '/' {
+		return absolute + "/"
+	}
+
+	return absolute
+}
+
+func last(str string) uint8 {
+	return str[len(str)-1]
 }
